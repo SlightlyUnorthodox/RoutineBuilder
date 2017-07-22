@@ -1,13 +1,11 @@
 from Tkinter import *
 from RoutineGUI import RoutineGUI
 import csv
-from datetime import datetime
 
 routine_header = ['routine', 'created', 'last_run']
 
 class RoutineBuilder(object):
 
-	date_pattern = "%d/%m/%Y"
 	routines_file = "routines.csv"
 	routines_header = ['routine', 'created', ' last_run']
 	routines = []
@@ -39,14 +37,8 @@ class RoutineBuilder(object):
 		with open(self.routines_file, 'wb') as csvfile:
 			writer = csv.writer(csvfile)
 			writer.writerow(self.routines_header)
-			for row in  updated_routines:
+			for row in updated_routines:
 				writer.writerow(row)
-
-	def __convert_datetime_to_char(self, dt):
-		return dt.strftime(self.date_pattern)
-
-	def __convert_char_to_datetime(self, dt):
-		return datetime.strptime(dt, self.date_pattern)
 
 if __name__ == "__main__":
 	builder = RoutineBuilder()
