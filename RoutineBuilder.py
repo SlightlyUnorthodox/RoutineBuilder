@@ -2,12 +2,10 @@ from Tkinter import *
 from RoutineGUI import RoutineGUI
 import csv
 
-routine_header = ['routine', 'created', 'last_run']
-
 class RoutineBuilder(object):
 
 	routines_file = "routines.csv"
-	routines_header = ['routine', 'created', ' last_run']
+	routines_header = ['routine', 'created', ' last_run', 'priority']
 	routines = []
 
 	def __init__(self):
